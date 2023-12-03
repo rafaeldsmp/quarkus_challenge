@@ -1,4 +1,4 @@
-package io.github.rafaelpino.api.controller;
+package io.github.rafaelpino.api.resource;
 
 import io.github.rafaelpino.application.dto.CreditCardDTO;
 import io.github.rafaelpino.domain.services.CreditCardService;
@@ -18,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @QuarkusTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-class CreditCardControllerTest {
+class CreditCardResourceTest {
     @TestHTTPResource("/api/creditcards")
     URL apiURL;
     @Inject

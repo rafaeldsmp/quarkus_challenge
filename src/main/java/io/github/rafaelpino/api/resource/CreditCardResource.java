@@ -1,9 +1,10 @@
-package io.github.rafaelpino.api.controller;
+package io.github.rafaelpino.api.resource;
 
 import io.github.rafaelpino.api.exceptions.ResponseError;
 import io.github.rafaelpino.application.dto.CreditCardDTO;
 import io.github.rafaelpino.domain.services.CreditCardService;
 
+import io.micrometer.core.annotation.Counted;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 import jakarta.validation.ConstraintViolation;
@@ -18,17 +19,18 @@ import java.util.Set;
 @Path("/api/creditcards")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
-public class CreditCardController {
+public class CreditCardResource {
     private CreditCardService creditCardService;
     private Validator validator;
 
     @Inject
-    public CreditCardController(CreditCardService creditCardService, Validator validator){
+    public CreditCardResource(CreditCardService creditCardService, Validator validator){
         this.creditCardService = creditCardService;
         this.validator = validator;
     }
 
     @GET
+    @Counted(value = "List All Credit Cards", description = "Number of invocations of the method listAllCreditCards")
     public Response listAllCreditCards(){
         List<CreditCardDTO> query = creditCardService.findAll();
         return Response.ok(query.stream().toList()).build();

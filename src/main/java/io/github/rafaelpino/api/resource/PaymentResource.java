@@ -1,12 +1,10 @@
-package io.github.rafaelpino.api.controller;
+package io.github.rafaelpino.api.resource;
 
 import io.github.rafaelpino.api.exceptions.CreditCardNotFoundException;
 import io.github.rafaelpino.api.exceptions.ResponseError;
 import io.github.rafaelpino.application.dto.PaymentDTO;
 import io.github.rafaelpino.domain.services.PaymentService;
-import io.quarkus.hibernate.validator.runtime.jaxrs.ViolationReport;
 import jakarta.inject.Inject;
-import jakarta.persistence.GeneratedValue;
 import jakarta.transaction.Transactional;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validator;
@@ -20,12 +18,12 @@ import java.util.Set;
 @Path("/api/payments")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
-public class PaymentController {
+public class PaymentResource {
     private PaymentService paymentService;
     private Validator validator;
 
     @Inject
-    public PaymentController(PaymentService paymentService, Validator validator) {
+    public PaymentResource(PaymentService paymentService, Validator validator) {
         this.paymentService = paymentService;
         this.validator = validator;
     }
