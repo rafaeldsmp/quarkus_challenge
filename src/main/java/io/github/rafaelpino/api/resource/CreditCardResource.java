@@ -16,7 +16,7 @@ import jakarta.ws.rs.core.Response;
 import java.util.List;
 import java.util.Set;
 
-@Path("/api/creditcards")
+@Path("/creditcards")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public class CreditCardResource {
