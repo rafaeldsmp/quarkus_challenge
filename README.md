@@ -4,8 +4,18 @@ This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
 If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
 
+## MICROMETER METRICS
+Integration of Micrometer Metrics in Quarkus
+Quarkus, renowned for its efficiency and rapid startup, gains considerable advantages from integrating with Micrometer Metrics, providing developers with a detailed and valuable insight into their application performance. By leveraging Micrometer Metrics in conjunction with Quarkus, it becomes feasible to monitor and collect a variety of essential metrics for the analysis and optimization of the application.
+```shell script
+http://localhost:8080/metrics
+```
+## Use Swagger UI for development
+When building APIs, developers want to test them quickly. Swagger UI is a great tool permitting to visualize and interact with your APIs. The UI is automatically generated from your OpenAPI specification.
+``` shell script
+http://localhost:8080/q/swagger-ui
+```
 ## Running the application in dev mode
-
 You can run your application in dev mode that enables live coding using:
 ```shell script
 ./mvnw compile quarkus:dev
