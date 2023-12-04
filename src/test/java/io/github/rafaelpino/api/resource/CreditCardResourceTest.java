@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @QuarkusTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class CreditCardResourceTest {
-    @TestHTTPResource("/api/creditcards")
+    @TestHTTPResource("/creditcards")
     URL apiURL;
     @Inject
     private CreditCardService creditCardService;
