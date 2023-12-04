@@ -3,6 +3,7 @@ package io.github.rafaelpino.api.resource;
 import io.github.rafaelpino.api.exceptions.CreditCardNotFoundException;
 import io.github.rafaelpino.api.exceptions.ResponseError;
 import io.github.rafaelpino.application.dto.PaymentDTO;
+import io.github.rafaelpino.domain.entities.CreditCard;
 import io.github.rafaelpino.domain.services.PaymentService;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
@@ -41,7 +42,7 @@ public class PaymentResource {
             ResponseError responseError = ResponseError.createFromValidation(violations);
             return Response.status(400).entity(responseError).build();
         }
-        var verification = paymentService.findIdCard(paymentDTO.getCard().getId());
+        CreditCard verification = paymentService.findIdCard(paymentDTO.getCard().getId());
         if(verification == null){
             CreditCardNotFoundException exception = new CreditCardNotFoundException("unable to find credit card");
             return Response.status(404).entity(exception).build();

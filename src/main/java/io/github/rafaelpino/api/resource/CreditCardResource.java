@@ -30,7 +30,7 @@ public class CreditCardResource {
     }
 
     @GET
-    @Counted(value = "List All Credit Cards", description = "Number of invocations of the method listAllCreditCards")
+    @Counted(value = "List All Credit Cards", description = "Number of times that the method listAllCreditCards was invoke")
     public Response listAllCreditCards(){
         List<CreditCardDTO> query = creditCardService.findAll();
         return Response.ok(query.stream().toList()).build();
